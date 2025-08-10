@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{#title}}{{title}}{{/title}}{{^title}}Document{{/title}}</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Dynamic font size from metadata */
+        {{#fontSize}}
+        body {
+            font-size: {{fontSize}} !important;
+        }
+        {{/fontSize}}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            useWidth: true,
+            themeVariables: {
+                fontSize: '{{#fontSize}}{{fontSize}}{{/fontSize}}{{^fontSize}}11pt{{/fontSize}}'
+            },
+            flowchart: {
+                useMaxWidth: true
+            },
+            sequence: {
+                useMaxWidth: true
+            },
+            gantt: {
+                useMaxWidth: true
+            }
+        });
+    </script>
+</head>
+<body>
+    {{{content}}}
+</body>
+</html>
