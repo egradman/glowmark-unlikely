@@ -14,6 +14,7 @@
         {{/fontSize}}
     </style>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://unpkg.com/mustache@latest/mustache.min.js"></script>
     <script>
         mermaid.initialize({ 
             startOnLoad: true,
@@ -54,10 +55,61 @@
             }
         }
         
+        // Function to load and render Mustache template
+        async function loadTemplate(templateUrl, dataUrl, containerId) {
+            try {
+                const [templateResponse, dataResponse] = await Promise.all([
+                    fetch(templateUrl),
+                    fetch(dataUrl)
+                ]);
+                
+                const template = await templateResponse.text();
+                const data = await dataResponse.json();
+                
+                const rendered = Mustache.render(template, data);
+                document.getElementById(containerId).innerHTML = rendered;
+            } catch (error) {
+                console.error(`Error loading template ${templateUrl}:`, error);
+            }
+        }
+        
+        // Function to render template with data
+        function renderTemplate(template, data, containerId) {
+            const rendered = Mustache.render(template, data);
+            document.getElementById(containerId).innerHTML = rendered;
+        }
+        
         // Load header and footer when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            loadHTML('header.html', 'header-container');
-            loadHTML('footer.html', 'footer-container');
+            // Load metadata and render templates
+            fetch('metadata.json')
+                .then(response => response.json())
+                .then(data => {
+                    // Set document title
+                    document.title = data.title || 'Document';
+                    
+                    // Load and render header
+                    fetch('header.html')
+                        .then(response => response.text())
+                        .then(template => {
+                            const rendered = Mustache.render(template, data);
+                            document.getElementById('header-container').innerHTML = rendered;
+                        });
+                    
+                    // Load and render footer
+                    fetch('footer.html')
+                        .then(response => response.text())
+                        .then(template => {
+                            const rendered = Mustache.render(template, data);
+                            document.getElementById('footer-container').innerHTML = rendered;
+                        });
+                })
+                .catch(error => {
+                    console.error('Error loading metadata:', error);
+                    // Fallback to static includes
+                    loadHTML('header.html', 'header-container');
+                    loadHTML('footer.html', 'footer-container');
+                });
         });
     </script>
 </body>
