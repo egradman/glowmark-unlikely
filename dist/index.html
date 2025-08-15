@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Dynamic font size from metadata */
+        body {
+            font-size: 11pt !important;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            useWidth: true,
+            themeVariables: {
+                fontSize: '11pt'
+            },
+            flowchart: {
+                useMaxWidth: true
+            },
+            sequence: {
+                useMaxWidth: true
+            },
+            gantt: {
+                useMaxWidth: true
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="header-container">
+        <div id="header" style="border-bottom: 2px solid #ccc; padding: 0; margin: 0;">
+    <table style="width: 100%; border: none; border-collapse: collapse; margin: 0; padding: 0;">
+        <tr>
+            <td style="width: auto; text-align: left; vertical-align: bottom; border: none; padding: 0; margin: 0; line-height: 0;">
+                <img src="style/images/unlikely_logo.png" alt="Logo" style="height: 40px; position: relative; top: 10px;">
+            </td>
+            <td style="text-align: right; vertical-align: bottom; border: none; padding: 0; margin: 0;">
+                <div class="document-title title" style="font-size: 16px; font-weight: 600; color: #2c3e50; margin: 0; padding: 0;"></div>
+            </td>
+        </tr>
+    </table>
+</div>
+    </div>
+    
+    <main>
+        <h1>Welcome to the Document</h1><p>This is the main content area.</p>
+    </main>
+    
+    <div id="footer-container">
+        <div id="footer" style="border-top: 1px solid #ecf0f1; padding: 5px 0; margin: 0 0 0.25in 0;">
+    <table style="width: 100%; border: none; border-collapse: collapse; margin: 0; padding: 0;">
+        <tr>
+            <td style="text-align: left; vertical-align: middle; border: none; padding: 0; margin: 0;">
+                <div class="footer-text" style="font-size: 10px; color: #7f8c8d; font-style: italic;">{{footer_text}}</div>
+            </td>
+            <td style="text-align: right; vertical-align: middle; border: none; padding: 0; margin: 0;">
+                <div class="page-numbers" style="font-size: 10px; color: #7f8c8d;">
+                    <span class="pageNumber"></span> / <span class="totalPages"></span>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+    </div>
+</body>
+</html>
