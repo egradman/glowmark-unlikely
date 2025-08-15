@@ -34,6 +34,31 @@
     </script>
 </head>
 <body>
-testing
+    <div id="header-container"></div>
+    
+    <main>
+        testing
+    </main>
+    
+    <div id="footer-container"></div>
+    
+    <script>
+        // Function to load HTML content
+        async function loadHTML(url, containerId) {
+            try {
+                const response = await fetch(url);
+                const html = await response.text();
+                document.getElementById(containerId).innerHTML = html;
+            } catch (error) {
+                console.error(`Error loading ${url}:`, error);
+            }
+        }
+        
+        // Load header and footer when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadHTML('header.html', 'header-container');
+            loadHTML('footer.html', 'footer-container');
+        });
+    </script>
 </body>
 </html>
