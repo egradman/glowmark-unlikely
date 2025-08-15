@@ -2,21 +2,21 @@
 /* PP Neue Machina fonts */
 @font-face {
     font-family: 'PP Neue Machina';
-    src: url('fonts/PPNeueMachina-Light.otf') format('opentype');
+    src: url('style/fonts/PPNeueMachina-Light.otf') format('opentype');
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'PP Neue Machina';
-    src: url('fonts/PPNeueMachina-Regular.otf') format('opentype');
+    src: url('style/fonts/PPNeueMachina-Regular.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'PP Neue Machina';
-    src: url('fonts/PPNeueMachina-Ultrabold.otf') format('opentype');
+    src: url('style/fonts/PPNeueMachina-Ultrabold.otf') format('opentype');
     font-weight: 800;
     font-style: normal;
 }
