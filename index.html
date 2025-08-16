@@ -130,6 +130,22 @@
                         .then(template => {
                             const rendered = Mustache.render(template, data);
                             document.getElementById('footer-container').innerHTML = rendered;
+                            
+                            // Set additional text values after footer is loaded
+                            const titleElement = document.querySelector('.document-title');
+                            if (titleElement) {
+                                titleElement.textContent = 'Document Title';
+                            }
+                            
+                            const pageNumberElement = document.querySelector('.pageNumber');
+                            if (pageNumberElement) {
+                                pageNumberElement.textContent = '1';
+                            }
+                            
+                            const totalPagesElement = document.querySelector('.totalPages');
+                            if (totalPagesElement) {
+                                totalPagesElement.textContent = '1';
+                            }
                         });
                 })
                 .catch(error => {
