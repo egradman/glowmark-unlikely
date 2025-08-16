@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:mustache": "node build.js",
     "preview": "vite preview"
   },
   "devDependencies": {
