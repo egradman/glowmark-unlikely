@@ -130,6 +130,12 @@
                     // Set document title
                     document.title = data.title || 'Document';
                     
+                    // Apply margins from metadata to letter wrapper
+                    const letterWrapper = document.querySelector('.letter-wrapper');
+                    if (letterWrapper && data.margins) {
+                        letterWrapper.style.padding = `${data.margins.top} ${data.margins.right} ${data.margins.bottom} ${data.margins.left}`;
+                    }
+                    
                     // Load and render header
                     fetch('header.html')
                         .then(response => response.text())
