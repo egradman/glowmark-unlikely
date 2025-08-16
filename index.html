@@ -40,6 +40,18 @@
             background: white;
             border-top: 1px solid #ecf0f1;
         }
+        
+        /* US Letter proportions wrapper */
+        .letter-wrapper {
+            width: 8.5in;
+            height: 11in;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script src="https://unpkg.com/mustache@latest/mustache.min.js"></script>
@@ -63,13 +75,15 @@
     </script>
 </head>
 <body>
-    <div id="header-container"></div>
-    
-    <main>
-        testing
-    </main>
-    
-    <div id="footer-container"></div>
+    <div class="letter-wrapper">
+        <div id="header-container"></div>
+        
+        <main>
+            testing
+        </main>
+        
+        <div id="footer-container"></div>
+    </div>
     
     <script>
         // Function to load HTML content
