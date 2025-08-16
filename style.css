@@ -281,7 +281,7 @@ pre, blockquote {
     display: none;
 }
 
-#footer-block {
+#footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -292,11 +292,11 @@ pre, blockquote {
     color: #7f8c8d;
 }
 
-#footer-block .company-info {
+#footer .company-info {
     font-style: italic;
 }
 
-#footer-block .page-numbers {
+#footer .page-numbers {
     font-weight: 500;
 }
 
